@@ -19,5 +19,10 @@ $router->post('/API/productos/guardar', [ProductoController::class, 'guardarAPI'
 $router->post('/API/productos/modificar', [ProductoController::class, 'modificarAPI']);
 $router->post('/API/productos/eliminar', [ProductoController::class, 'eliminarAPI']);
 
+
+
+$router->get('/aplicaciones', [AplicacionController::class, 'index']);
+
+
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

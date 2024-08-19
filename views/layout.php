@@ -30,23 +30,23 @@
 
                     <div class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-cart4"></i></i>Productos
+                            <i class="bi bi-cart4"></i></i> Productos
                         </a>
                         <ul class="dropdown-menu  dropdown-menu-dark " id="dropwdownRevision" style="margin: 0;">
                             <!-- <h6 class="dropdown-header">Información</h6> -->
                             <li>
-                                <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/productos/"><i class="ms-lg-0 ms-2 bi bi-plus-circle me-2"></i>Crear Productos</a>
+                                <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/producto"><i class="ms-lg-0 ms-2 bi bi-plus-circle me-2"></i>Crear Productos</a>
                             </li>
                         </ul>
                     </div>
                     <div class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-table"></i>Tablas MDN
+                            <i class="bi bi-table"></i> Tablas MDN
                         </a>
                         <ul class="dropdown-menu  dropdown-menu-dark " id="dropwdownRevision" style="margin: 0;">
                             <!-- <h6 class="dropdown-header">Información</h6> -->
                             <li>
-                                <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/productos/"><i class="bi bi-terminal-x"></i></i>  APLICACIONES</a>
+                                <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/aplicaciones/"><i class="bi bi-terminal-x"></i></i>  APLICACIONES</a>
                             </li>
                             <li>
                                 <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/productos/"><i class="bi bi-person-fill-gear"></i></i>  ROLES</a>
@@ -82,7 +82,7 @@
                 <p style="font-size:xx-small; font-weight: bold;">
                     Comando de Informática y Tecnología, <?= date('Y') ?> &copy;
                 </p>
-            </div>
+            </div> 
         </div>
     </div>
 </body>

@@ -8,7 +8,7 @@ class Producto extends ActiveRecord
     protected static $idTabla = 'id';
     protected static $columnasDB = ['nombre', 'precio', 'situacion'];
 
-    public $id;
+    public $pro_id;
     public $nombre;
     public $precio;
     public $situacion;
@@ -16,7 +16,7 @@ class Producto extends ActiveRecord
 
     public function __construct($args = [])
     {
-        $this->id = $args['id'] ?? null;
+        $this->pro_id = $args['id'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->precio = $args['precio'] ?? 0;
         $this->situacion = $args['situacion'] ?? 1;

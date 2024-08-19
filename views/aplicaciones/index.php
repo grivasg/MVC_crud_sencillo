@@ -1,0 +1,1 @@
+<h1>Hola esta es una prueba de redireccionamiento</h1>

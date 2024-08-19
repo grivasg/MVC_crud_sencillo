@@ -21,7 +21,7 @@ $router->post('/API/productos/eliminar', [ProductoController::class, 'eliminarAP
 
 
 
-$router->get('/aplicaciones', [AplicacionController::class, 'index']);
+// $router->get('/aplicaciones', [AplicacionController::class, 'index']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

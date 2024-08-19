@@ -5,7 +5,7 @@ namespace Model;
 class Producto extends ActiveRecord
 {
     protected static $tabla = 'productos';
-    protected static $idTabla = 'id';
+    protected static $idTabla = 'pro_id';
     protected static $columnasDB = ['nombre', 'precio', 'situacion'];
 
     public $pro_id;
@@ -16,7 +16,7 @@ class Producto extends ActiveRecord
 
     public function __construct($args = [])
     {
-        $this->pro_id = $args['id'] ?? null;
+        $this->pro_id = $args['pro_id'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->precio = $args['precio'] ?? 0;
         $this->situacion = $args['situacion'] ?? 1;

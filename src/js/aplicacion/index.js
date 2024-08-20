@@ -2,76 +2,74 @@ import { Dropdown } from "bootstrap";
 import { Toast, validarFormulario } from "../funciones";
 import Swal from "sweetalert2";
 
+const formulario = document.getElementById('formAplicacion');
+const tabla = document.getElementById('tablaAplicacion');
+const btnGuardar = document.getElementById('btnGuardar');
+const btnModificar = document.getElementById('btnModificar');
+const btnCancelar = document.getElementById('btnCancelar');
 
-const formulario = document.getElementById('formAplicacion')
-const tabla = document.getElementById('tablaAplicacion')
-const btnGuardar = document.getElementById('btnGuardar')
-const btnModificar = document.getElementById('btnModificar')
-const btnCancelar = document.getElementById('btnCancelar')
-
-btnModificar.parentElement.style.display = 'none'
-btnModificar.disabled = true
-btnCancelar.parentElement.style.display = 'none'
-btnCancelar.disabled = true
+btnModificar.parentElement.style.display = 'none';
+btnModificar.disabled = true;
+btnCancelar.parentElement.style.display = 'none';
+btnCancelar.disabled = true;
 
 const guardar = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validarFormulario(formulario, ['app_id'])) {
         Swal.fire({
             title: "Campos vacios",
             text: "Debe llenar todos los campos",
             icon: "info"
-        })
-        return
+        });
+        return;
     }
 
     try {
-        const body = new FormData(formulario)
-        const url = "/MVC_crud_sencillo/API/aplicacion/guardar"
+        const body = new FormData(formulario);
+        const url = "/MVC_crud_sencillo/API/aplicacion/guardar";
         const config = {
             method: 'POST',
             body
-        }
+        };
 
         const respuesta = await fetch(url, config);
         const data = await respuesta.json();
         const { codigo, mensaje, detalle } = data;
-        let icon = 'info'
-        if (codigo == 1) {
-            icon = 'success'
+        let icon = 'info';
+        if (codigo === 1) {
+            icon = 'success';
             formulario.reset();
             buscar();
         } else {
-            icon = 'error'
+            icon = 'error';
             console.log(detalle);
         }
 
         Toast.fire({
             icon: icon,
             title: mensaje
-        })
+        });
 
     } catch (error) {
-        console.log(error);
+        console.error('Error al guardar:', error);
     }
-}
-
+};
 
 const buscar = async () => {
     try {
-        const url = "/MVC_crud_sencillo/API/aplicacion/buscar"
+        const url = "/MVC_crud_sencillo/API/aplicacion/buscar";
         const config = {
             method: 'GET',
-        }
+        };
 
         const respuesta = await fetch(url, config);
         const data = await respuesta.json();
         const { codigo, mensaje, detalle, datos } = data;
-        tabla.tBodies[0].innerHTML = ''
+        tabla.tBodies[0].innerHTML = '';
         const fragment = document.createDocumentFragment();
         console.log(datos);
-        if (codigo == 1) {
+        if (codigo === 1) {
             let counter = 1;
             datos.forEach(aplicacion => {
                 const tr = document.createElement('tr');
@@ -82,116 +80,116 @@ const buscar = async () => {
                 const buttonModificar = document.createElement('button');
                 const buttonEliminar = document.createElement('button');
 
-                td1.innerText = counter
-                td2.innerText = aplicacion.app_nombre
+                td1.innerText = counter;
+                td2.innerText = aplicacion.app_nombre;
 
-                buttonModificar.classList.add('btn', 'btn-warning')
-                buttonEliminar.classList.add('btn', 'btn-danger')
-                buttonModificar.innerText = 'Modificar'
-                buttonEliminar.innerText = 'Eliminar'
+                buttonModificar.classList.add('btn', 'btn-warning');
+                buttonEliminar.classList.add('btn', 'btn-danger');
+                buttonModificar.innerText = 'Modificar';
+                buttonEliminar.innerText = 'Eliminar';
 
-                buttonModificar.addEventListener('click', () => traerDatos(aplicacion))
-                buttonEliminar.addEventListener('click', () => eliminar(aplicacion))
+                buttonModificar.addEventListener('click', () => traerDatos(aplicacion));
+                buttonEliminar.addEventListener('click', () => eliminar(aplicacion));
 
-                td3.appendChild(buttonModificar)
-                td4.appendChild(buttonEliminar)
+                td3.appendChild(buttonModificar);
+                td4.appendChild(buttonEliminar);
 
-                counter++
+                counter++;
 
-                tr.appendChild(td1)
-                tr.appendChild(td2)
-                tr.appendChild(td3)
-                tr.appendChild(td4)
-                fragment.appendChild(tr)
-            })
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                fragment.appendChild(tr);
+            });
         } else {
             const tr = document.createElement('tr');
             const td = document.createElement('td');
-            td.innerText = "No hay APPS"
-            td.colSpan = 3
+            td.innerText = "No hay APPS";
+            td.colSpan = 4;
 
-            tr.appendChild(td)
-            fragment.appendChild(tr)
+            tr.appendChild(td);
+            fragment.appendChild(tr);
         }
 
-        tabla.tBodies[0].appendChild(fragment)
+        tabla.tBodies[0].appendChild(fragment);
 
     } catch (error) {
-        console.log(error);
+        console.error('Error al buscar:', error);
     }
-}
+};
 buscar();
 
 const traerDatos = (aplicacion) => {
     console.log(aplicacion);
-    formulario.app_id.value = aplicacion.id
-    formulario.app_nombre.value = aplicacion.app_nombre
-    tabla.parentElement.parentElement.style.display = 'none'
+    formulario.app_id.value = aplicacion.app_id;
+    formulario.app_nombre.value = aplicacion.app_nombre;
+    tabla.parentElement.parentElement.style.display = 'none';
 
-    btnGuardar.parentElement.style.display = 'none'
-    btnGuardar.disabled = true
-    btnModificar.parentElement.style.display = ''
-    btnModificar.disabled = false
-    btnCancelar.parentElement.style.display = ''
-    btnCancelar.disabled = false
-}
+    btnGuardar.parentElement.style.display = 'none';
+    btnGuardar.disabled = true;
+    btnModificar.parentElement.style.display = '';
+    btnModificar.disabled = false;
+    btnCancelar.parentElement.style.display = '';
+    btnCancelar.disabled = false;
+};
 
 const cancelar = () => {
-    tabla.parentElement.parentElement.style.display = ''
+    tabla.parentElement.parentElement.style.display = '';
     formulario.reset();
-    btnGuardar.parentElement.style.display = ''
-    btnGuardar.disabled = false
-    btnModificar.parentElement.style.display = 'none'
-    btnModificar.disabled = true
-    btnCancelar.parentElement.style.display = 'none'
-    btnCancelar.disabled = true
-}
+    btnGuardar.parentElement.style.display = '';
+    btnGuardar.disabled = false;
+    btnModificar.parentElement.style.display = 'none';
+    btnModificar.disabled = true;
+    btnCancelar.parentElement.style.display = 'none';
+    btnCancelar.disabled = true;
+};
 
 const modificar = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validarFormulario(formulario)) {
         Swal.fire({
             title: "Campos vacios",
             text: "Debe llenar todos los campos",
             icon: "info"
-        })
-        return
+        });
+        return;
     }
 
     try {
-        const body = new FormData(formulario)
-        const url = "/MVC_crud_sencillo/API/aplicacion/modificar"
+        const body = new FormData(formulario);
+        const url = "/MVC_crud_sencillo/API/aplicacion/modificar";
 
         const config = {
             method: 'POST',
             body
-        }
+        };
 
         const respuesta = await fetch(url, config);
         const data = await respuesta.json();
         const { codigo, mensaje, detalle } = data;
         console.log(data);
-        let icon = 'info'
-        if (codigo == 1) {
-            icon = 'success'
+        let icon = 'info';
+        if (codigo === 1) {
+            icon = 'success';
             formulario.reset();
             buscar();
             cancelar();
         } else {
-            icon = 'error'
+            icon = 'error';
             console.log(detalle);
         }
 
         Toast.fire({
             icon: icon,
             title: mensaje
-        })
+        });
 
     } catch (error) {
-        console.log(error);
+        console.error('Error al modificar:', error);
     }
-}
+};
 
 const eliminar = async (aplicacion) => {
     let confirmacion = await Swal.fire({
@@ -209,8 +207,8 @@ const eliminar = async (aplicacion) => {
     if (confirmacion.isConfirmed) {
         try {
             const body = new FormData()
-            body.append('id', aplicacion.app_id)
-            const url = "/MVC_crud_sencillo/API/aplicacion/buscar"
+            body.append('app_id', aplicacion.app_id)
+            const url = "/MVC_crud_sencillo/API/aplicacion/eliminar"
             const config = {
                 method: 'POST',
                 body
@@ -238,8 +236,8 @@ const eliminar = async (aplicacion) => {
         }
     }
 
-}
+};
 
-formulario.addEventListener('submit', guardar)
-btnCancelar.addEventListener('click', cancelar)
-btnModificar.addEventListener('click', modificar)
+formulario.addEventListener('submit', guardar);
+btnCancelar.addEventListener('click', cancelar);
+btnModificar.addEventListener('click', modificar);

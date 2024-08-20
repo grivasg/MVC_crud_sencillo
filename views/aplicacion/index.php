@@ -28,7 +28,7 @@
                 <tr>
                     <th>No.</th>
                     <th>Nombre</th>
-                    <th>Acciones</th>
+                    <th colspan="2">Acciones</th>
                 </tr>
             </thead>
             <tbody>

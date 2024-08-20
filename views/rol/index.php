@@ -11,10 +11,15 @@
                 <label for="rol_nombre_ct">Nombre CT</label>
                 <input type="text" name="rol_nombre_ct" id="rol_nombre_ct" class="form-control">
             </div>
-            <div class="col">
-                <label for="rol_app">APP</label>
-                <input type="text" name="rol_app" id="rol_app" class="form-control">
-            </div>
+            <label for="rol_app">SELECCIONE APPS</label>
+            <select id="rol_app" name="rol_app" class="form-control" required>
+                <option value="">SELECCIONE</option>
+                <?php foreach ($apps as $app): ?>
+                    <option value="<?= $app['app_id'] ?>">
+                        <?= $app['app_nombre'] . "" ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="row">
             <div class="col">

@@ -21,7 +21,7 @@ class Rol extends ActiveRecord
         $this->rol_nombre = $args['rol_nombre'] ?? '';
         $this->rol_nombre_ct = $args['rol_nombre_ct'] ?? '';
         $this->rol_app = $args['rol_app'] ?? '';
-        $this->rol_situacion = $args['app_situacion'] ?? 1;
+        $this->rol_situacion = $args['rol_situacion'] ?? 1;
     }
 
     public static function obtenerRolconQuery()

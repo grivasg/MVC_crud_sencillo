@@ -49,7 +49,7 @@
                                 <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/aplicacion"><i class="bi bi-terminal-x"></i></i>  APLICACIONES</a>
                             </li>
                             <li>
-                                <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/productos"><i class="bi bi-person-fill-gear"></i></i>  ROLES</a>
+                                <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/rol"><i class="bi bi-person-fill-gear"></i></i>  ROLES</a>
                             </li>
                             <li>
                                 <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/productos"><i class="bi bi-people"></i></i>  USUARIOS</a>

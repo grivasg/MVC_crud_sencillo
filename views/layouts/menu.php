@@ -36,7 +36,7 @@
                         <ul class="dropdown-menu  dropdown-menu-dark " id="dropwdownRevision" style="margin: 0;">
                             <!-- <h6 class="dropdown-header">Información</h6> -->
                             <li>
-                                <a class="dropdown-item nav-link text-white " href="/login_test/registro"><i class="ms-lg-0 ms-2 bi bi-plus-circle me-2"></i>Registro de usuarios</a>
+                                <a class="dropdown-item nav-link text-white " href="/MVC_crud_sencillo/registro"><i class="ms-lg-0 ms-2 bi bi-plus-circle me-2"></i>Registro de usuarios</a>
                             </li>
 
 
@@ -47,7 +47,7 @@
                 </ul>
                 <div class="col-lg-1 d-grid mb-lg-0 mb-2">
                     <!-- Ruta relativa desde el archivo donde se incluye menu.php -->
-                    <a href="/login_test/logout" class="btn btn-danger"><i class="bi bi-arrow-bar-left"></i>Salir</a>
+                    <a href="/MVC_crud_sencillo/logout" class="btn btn-danger"><i class="bi bi-arrow-bar-left"></i>Salir</a>
                 </div>
 
 

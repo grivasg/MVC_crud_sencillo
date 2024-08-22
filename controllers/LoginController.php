@@ -19,7 +19,7 @@ class LoginController
         isAuth();
         $_SESSION = [];
         session_destroy();
-        header('Location: /login_test/');
+        header('Location: /MVC_crud_sencillo/');
     }
 
     public static function registro(Router $router)

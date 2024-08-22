@@ -21,5 +21,10 @@
             </div>
         </div>
     </form>
+    <div class="mt-3">
+        <p class="mb-0 text-center">¿No tiene una cuenta?<a href="/MVC_crud_sencillo/registro" class="text-primary fw-bold ms-2">Registrarse</a></p>
+        
+    </div>
+
 </div>
 <script src="<?= asset('./build/js/auth/login.js') ?>"></script>

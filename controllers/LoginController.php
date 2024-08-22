@@ -30,8 +30,8 @@ class LoginController
     }
     public static function menu(Router $router)
     {
-        isAuth();
-        hasPermission(['TIENDA_ADMIN', 'TIENDA_USER']);
+        // isAuth();
+        // hasPermission(['TIENDA_ADMIN', 'TIENDA_USER']);
         $router->render('pages/menu', [], 'layouts/menu');
     }
 

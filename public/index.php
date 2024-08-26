@@ -14,6 +14,9 @@ use Controllers\LoginController;
 $router = new Router();
 $router->setBaseURL('/' . $_ENV['APP_NAME']);
 
+$router->get('/', [AppController::class, 'login']);
+
+
 
 //LOGIN
 $router->get('/', [LoginController::class, 'login']);

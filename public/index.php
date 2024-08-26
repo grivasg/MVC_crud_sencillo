@@ -5,7 +5,8 @@ require_once __DIR__ . '/../includes/app.php';
 use MVC\Router;
 use Controllers\AppController;
 use Controllers\ProductoController;        
-use Controllers\AplicacionController;        
+use Controllers\AplicacionController;
+use Controllers\DetalleController;
 use Controllers\RolController;
 use Controllers\UsuarioController;
 use Controllers\LoginController;
@@ -16,6 +17,9 @@ $router->setBaseURL('/' . $_ENV['APP_NAME']);
 
 $router->get('/', [AppController::class, 'login']);
 
+//ESTADISTICA
+$router->get('/productos/estadisticas', [DetalleController::class, 'estadisticas']);
+$router->get('API/detalle/estadisticas', [DetalleController::class, 'detalleVentasAPI']);
 
 
 //LOGIN

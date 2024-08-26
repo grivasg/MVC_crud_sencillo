@@ -7,10 +7,10 @@ module.exports = {
     'js/inicio' : './src/js/inicio.js',
     'js/auth/registro': './src/js/auth/registro.js',
     'js/auth/login': './src/js/auth/login.js',
-    'js/producto/index' : './src/js/producto/index.js',
     'js/aplicacion/index' : './src/js/aplicacion/index.js',
     'js/rol/index' : './src/js/rol/index.js',
     'js/menu/index' : './src/js/menu/index.js',
+    'js/productos/estadistica' : './src/js/productos/estadistica.js',
   },
   output: {
     filename: '[name].js',
